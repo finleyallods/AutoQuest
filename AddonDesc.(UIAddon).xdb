@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIAddon>
+    <Name>AutoQuest</Name>
+    <AutoStart>true</AutoStart>
+    <ScriptFileRefs>
+        <Item href="scripts/AutoQuest.lua"/>
+        <Item href="scripts/Utility.lua"/>
+    </ScriptFileRefs>
+    <visObjects href=""/>
+    <texts href=""/>
+    <www/>
+    <author>Finley</author>
+    <revision></revision>
+    <lastUpdate/>
+    <addon_name>AutoQuest</addon_name>
+    <addon_date></addon_date>
+    <addon_link></addon_link>
+    <localizedNameFileRef href="name.txt"/>
+    <localizedDescFileRef href="desc.txt"/>
+</UIAddon>

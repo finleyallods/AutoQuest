@@ -1,4 +1,4 @@
-local skipFactor = 3
+local skipFactor = 10
 
 function getRewardScore(itemId)
     return itemLib.GetBonus(itemId).innateStats[ENUM_InnateStats_Lifesteal].base
@@ -77,7 +77,7 @@ function getImprovementIndex(itemId, compatibleSlots)
     local improvementIndex = -1
 
     for i, slotId in pairs(compatibleSlots) do
-        local equipmentItemId = GetEquipmentItemId( myId, slotId, ITEM_CONT_EQUIPMENT  )
+        local equipmentItemId = unit.GetEquipmentItemId( myId, slotId, ITEM_CONT_EQUIPMENT  )
         if itemLib.GetGearScore(itemId) > itemLib.GetGearScore(equipmentItemId) then
             improvementIndex = improvementIndex + 1
         end
@@ -91,8 +91,14 @@ function onInventorySlotChanged(params)
     local itemInfo = itemLib.GetItemInfo(itemId)
     local compatibleSlots = itemLib.GetCompatibleSlots(itemId)
 
+    if params.tabIndex > 1 then
+        return
+    end
+
+     debugMessage("Slot index: " .. tostring(params.slotIndex) .. " Item id: " .. tostring(itemId))
+     debugMessage("Compatible slots[" .. tostring(#compatibleSlots) .. "]:" .. table.concat(compatibleSlots, "-"))
+
     if itemInfo.isDressable and compatibleSlots and #compatibleSlots > 0 then
-        debugMessage("Compatible slots:"..table.concat(compatibleSlots, "-"))
         local improvementIndex = getImprovementIndex(itemId, compatibleSlots)
         if improvementIndex > 0 then
             avatar.EquipItemToSlot(params.slotIndex, compatibleSlots[improvementIndex])

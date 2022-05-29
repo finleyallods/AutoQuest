@@ -1,3 +1,4 @@
+local wtChat
 local debugMode = true
 
 function debugMessage(message)

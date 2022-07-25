@@ -1,5 +1,3 @@
-local skipFactor = 10
-
 function getRewardScore(itemId)
     return itemLib.GetBonus(itemId).innateStats[ENUM_InnateStats_Lifesteal].base
 end

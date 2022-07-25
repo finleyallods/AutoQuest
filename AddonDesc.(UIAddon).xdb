@@ -3,6 +3,7 @@
     <Name>AutoQuest</Name>
     <AutoStart>true</AutoStart>
     <ScriptFileRefs>
+        <Item href="config/Config.lua"/>
         <Item href="scripts/AutoQuest.lua"/>
         <Item href="scripts/Utility.lua"/>
     </ScriptFileRefs>

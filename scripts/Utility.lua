@@ -1,5 +1,4 @@
 local wtChat
-local debugMode = true
 
 function debugMessage(message)
     if debugMode then
